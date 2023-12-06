@@ -26,7 +26,7 @@ pub fn build(b: *std.Build) !void {
         "-DHAVE_STDDEF_H",
         "-DZ_HAVE_UNISTD_H",
     });
-    lib.addCSourceFiles(srcs, flags.items);
+    lib.addCSourceFiles(.{ .files = srcs, .flags = flags.items });
 
     b.installArtifact(lib);
 }
